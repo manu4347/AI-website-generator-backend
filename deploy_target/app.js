@@ -1,165 +1,145 @@
 document.addEventListener('DOMContentLoaded', () => {
-            const hamburger = document.getElementById('hamburger');
-            const navLinks = document.getElementById('navLinks');
-            const productGrid = document.getElementById('productGrid');
-            const loadingMessage = document.getElementById('loadingMessage');
-            const contactForm = document.getElementById('contactForm');
-            const navItems = document.querySelectorAll('.nav-links a');
+            const hamburger = document.querySelector('.hamburger');
+            const navList = document.querySelector('.nav-list');
+            const navLinks = document.querySelectorAll('.nav-link');
+            const sections = document.querySelectorAll('section');
+            const menuItemsContainer = document.getElementById('menu-items-container');
 
-            /**
-             * Handles the mobile navigation toggle.
-             * Toggles 'active' class on hamburger icon and nav links.
-             */
+            // 1. Hamburger Menu Toggle
             hamburger.addEventListener('click', () => {
                 hamburger.classList.toggle('active');
-                navLinks.classList.toggle('active');
+                navList.classList.toggle('active');
             });
 
-            /**
-             * Smooth scrolling for navigation links and closes mobile menu.
-             */
-            navItems.forEach(item => {
-                item.addEventListener('click', (event) => {
-                    // Remove active class from all nav items
-                    navItems.forEach(link => link.classList.remove('active'));
-                    // Add active class to the clicked item
-                    event.currentTarget.classList.add('active');
-
-                    // If mobile menu is open, close it
-                    if (navLinks.classList.contains('active')) {
-                        hamburger.classList.remove('active');
-                        navLinks.classList.remove('active');
-                    }
-
-                    // For smooth scroll, this is already handled by CSS scroll-behavior: smooth
-                    // If you needed custom scroll, you'd add:
-                    // const targetId = item.getAttribute('href').substring(1);
-                    // document.getElementById(targetId).scrollIntoView({ behavior: 'smooth' });
-                });
-            });
-
-            /**
-             * Dynamically fetches product data from a public API and renders it.
-             * Using fakestoreapi.com to simulate product listings.
-             * Note: Real cold pressed oil products would typically come from a custom backend API.
-             */
-            const fetchProducts = async () => {
-                try {
-                    const response = await fetch('https://fakestoreapi.com/products?limit=6'); // Fetch 6 items
-                    if (!response.ok) {
-                        throw new Error(`HTTP error! status: ${response.status}`);
-                    }
-                    const products = await response.json();
-                    
-                    // Clear loading message
-                    loadingMessage.remove();
-
-                    // Map fetched products to a more relevant "oil" context (simulated)
-                    const simulatedOils = products.map(product => {
-                        let oilType = "Variety"; // Default
-                        if (product.category.includes("jewelery")) oilType = "Olive";
-                        else if (product.category.includes("electronics")) oilType = "Sesame";
-                        else if (product.category.includes("men's clothing")) oilType = "Coconut";
-                        else if (product.category.includes("women's clothing")) oilType = "Sunflower";
-
-                        // Shorten titles and descriptions for better display
-                        const title = product.title.length > 50 ? product.title.substring(0, 47) + '...' : product.title;
-                        const description = product.description.length > 120 ? product.description.substring(0, 117) + '...' : product.description;
-
-                        return {
-                            id: product.id,
-                            name: `${oilType} Oil`, // Simulate oil name
-                            category: `Cold Pressed ${oilType}`,
-                            description: `Discover the pure essence of ${oilType} oil. Rich in nutrients and perfect for healthy cooking or skincare. ${description}`,
-                            price: (product.price * 0.7).toFixed(2), // Adjust price for realism
-                            image: product.image // Use original image
-                        };
-                    });
-
-                    // Render products to the DOM
-                    simulatedOils.forEach(product => {
-                        const productCard = document.createElement('article'); // Use <article> for individual products
-                        productCard.classList.add('product-card');
-                        productCard.innerHTML = `
-                            <img src="${product.image}" alt="${product.name}">
-                            <p class="category">${product.category}</p>
-                            <h3>${product.name}</h3>
-                            <p class="description">${product.description}</p>
-                            <span class="price">$${product.price}</span>
-                            <button class="btn-add-to-cart" data-product-id="${product.id}" data-product-name="${product.name}">Add to Cart</button>
-                        `;
-                        productGrid.appendChild(productCard);
-                    });
-
-                    // Add event listeners for "Add to Cart" buttons
-                    document.querySelectorAll('.btn-add-to-cart').forEach(button => {
-                        button.addEventListener('click', (event) => {
-                            const productName = event.target.dataset.productName;
-                            // Simulate adding to cart - in a real app, this would update a cart state or send to backend
-                            alert(`${productName} added to cart! (This is a client-side simulation)`);
-                            console.log(`Product ID ${event.target.dataset.productId} (${productName}) added to cart.`);
-                        });
-                    });
-
-                } catch (error) {
-                    console.error('Failed to fetch products:', error);
-                    loadingMessage.textContent = 'Failed to load products. Please try again later.';
-                    // Optionally, remove the product grid to show only the error message
-                    productGrid.innerHTML = `<p class="text-center" style="color: red;">Failed to load products. Please try again later. Error: ${error.message}</p>`;
+            // Close mobile nav when a link is clicked
+            navList.addEventListener('click', (e) => {
+                if (e.target.classList.contains('nav-link')) {
+                    hamburger.classList.remove('active');
+                    navList.classList.remove('active');
                 }
-            };
-
-            // Call fetchProducts when the DOM is loaded
-            fetchProducts();
-
-            /**
-             * Handles contact form submission.
-             * Prevents default form submission and logs data (client-side simulation).
-             */
-            contactForm.addEventListener('submit', (event) => {
-                event.preventDefault(); // Prevent actual form submission
-
-                const formData = new FormData(contactForm);
-                const formObject = {};
-                formData.forEach((value, key) => {
-                    formObject[key] = value;
-                });
-
-                console.log('Contact form submitted:', formObject);
-                alert('Thank you for your message! We will get back to you shortly. (This is a client-side simulation)');
-                contactForm.reset(); // Clear the form
             });
 
-            /**
-             * Intersection Observer for active navigation links based on scroll position.
-             */
-            const sections = document.querySelectorAll('section');
-            const options = {
+            // 2. Smooth Scrolling & Active Nav Link on Scroll
+            // Root Margin: A value for the top, right, bottom, and left margins of the root.
+            // This defines the bounding box for checking intersection. '0px 0px -20% 0px' means
+            // the bottom 20% of the viewport is ignored, making sections active earlier.
+            const observerOptions = {
                 root: null, // viewport
-                rootMargin: '0px',
-                threshold: 0.5 // Trigger when 50% of the section is visible
+                rootMargin: '0px 0px -20% 0px', 
+                threshold: 0.5 // Section is considered active when 50% visible in the rootMargin adjusted area
             };
 
-            const observer = new IntersectionObserver((entries) => {
+            const sectionObserver = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        navItems.forEach(item => {
-                            item.classList.remove('active');
-                            if (item.getAttribute('href') === `#${entry.target.id}`) {
-                                item.classList.add('active');
+                        navLinks.forEach(link => {
+                            link.classList.remove('active');
+                            if (link.getAttribute('href') === `#${entry.target.id}`) {
+                                link.classList.add('active');
                             }
                         });
                     }
                 });
-            }, options);
+            }, observerOptions);
 
             sections.forEach(section => {
-                observer.observe(section);
+                sectionObserver.observe(section);
             });
 
-            // Handle initial active link for hero section if it's visible on load
-            const heroLink = document.querySelector('.nav-links a[href="#hero"]');
-            if (heroLink) {
-                heroLink.classList.add('active');
+            // Handle the initial active state for the first section if page is loaded at top
+            if (sections.length > 0) {
+                const firstSectionId = sections[0].id;
+                const firstNavLink = document.querySelector(`.nav-link[href="#${firstSectionId}"]`);
+                if (firstNavLink) {
+                    firstNavLink.classList.add('active');
+                }
+            }
+
+
+            // 3. Reveal on Scroll Effect
+            const revealElements = document.querySelectorAll('.reveal');
+
+            const revealObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        observer.unobserve(entry.target); // Stop observing once revealed
+                    }
+                });
+            }, {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1 // Reveal when 10% of the element is visible
+            });
+
+            revealElements.forEach(el => {
+                revealObserver.observe(el);
+            });
+
+            // 4. Fetch API Data and Render Menu Cards
+            const fetchMenuData = async () => {
+                try {
+                    // Using FakestoreAPI to simulate food items
+                    // Fetch 6 products to display as food menu items
+                    const response = await fetch('https://fakestoreapi.com/products?limit=6');
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    const products = await response.json();
+
+                    // Clear loading message
+                    menuItemsContainer.innerHTML = '';
+
+                    // Map products to menu items. We'll simulate food data from generic products.
+                    products.forEach(product => {
+                        const menuCard = document.createElement('div');
+                        menuCard.classList.add('menu-card');
+
+                        // Adapt API data to sound more like Indian food
+                        const foodNames = [
+                            "Spicy Chicken Tikka Masala", "Vegetable Korma", "Lamb Rogan Josh",
+                            "Paneer Butter Masala", "Dal Makhani Delight", "Goan Fish Curry",
+                            "Aloo Gobi", "Palak Paneer", "Biryani Special", "Tandoori Chicken"
+                        ];
+                        const foodName = foodNames[Math.floor(Math.random() * foodNames.length)];
+                        
+                        const foodDescriptions = [
+                            "A rich and creamy tomato-based curry, bursting with authentic Indian spices.",
+                            "A delightful medley of fresh vegetables simmered in a cashew-cream sauce.",
+                            "Tender lamb cooked in a fragrant onion and yogurt gravy.",
+                            "Soft paneer cubes in a luscious, mildly spiced tomato gravy.",
+                            "Slow-cooked black lentils in a buttery, smoky sauce, a true comfort food.",
+                            "Fresh fish cooked in a tangy coconut and red chili paste, a taste of coastal India."
+                        ];
+                        const foodDescription = foodDescriptions[Math.floor(Math.random() * foodDescriptions.length)];
+                        
+                        // Adjust price to be more typical for a restaurant menu item
+                        const foodPrice = (product.price * 0.5 + Math.random() * 10).toFixed(2); 
+
+                        menuCard.innerHTML = `
+                            <img src="${product.image}" alt="${foodName}" loading="lazy">
+                            <h3>${foodName}</h3>
+                            <p>${foodDescription}</p>
+                            <span class="price">$${foodPrice}</span>
+                        `;
+                        menuItemsContainer.appendChild(menuCard);
+                    });
+
+                } catch (error) {
+                    console.error('Error fetching menu data:', error);
+                    menuItemsContainer.innerHTML = '<p class="loading-message" style="color: #ff6b6b;">Failed to load menu items. Please try again later.</p>';
+                }
+            };
+
+            fetchMenuData();
+
+            // 5. Basic form submission (prevent default)
+            const contactForm = document.querySelector('.contact-form');
+            if (contactForm) {
+                contactForm.addEventListener('submit', (e) => {
+                    e.preventDefault(); // Prevent actual form submission
+                    alert('Thank you for your message! We will get back to you shortly.');
+                    contactForm.reset(); // Clear the form fields
+                });
             }
         });
