@@ -1,89 +1,107 @@
-<<<<<<< HEAD
-
-=======
->>>>>>> 8d8c2c6 (Update deploy_target with latest generated site)
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anjana Restaurant - Delicious Indian Food Online</title>
-    <!-- Favicon: Using a relevant royalty-free image from Pexels -->
-    <link rel="icon" href="https://images.pexels.com/photos/2080344/pexels-photo-2080344.jpeg?auto=compress&cs=tinysrgb&w=16&h=16" type="image/jpeg">
+    <title>RamaRaju Chess Academy</title>
     <style>
-        /* CSS Reset & Global Styles */
+        /* General Styles & Resets */
+        :root {
+            --primary-purple: #6a11cb;
+            --secondary-blue: #2575fc;
+            --dark-background: #1a1a2e;
+            --text-light: #e0e0e0;
+            --text-dark: #333;
+            --glass-bg: rgba(255, 255, 255, 0.08);
+            --glass-border: rgba(255, 255, 255, 0.2);
+            --transition-speed: 0.3s ease;
+        }
+
         *, *::before, *::after {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
         }
 
-        :root {
-            /* Color Palette (Purple/Blue Gradients) */
-            --primary-color: #4f00bc; /* Deep Violet */
-            --secondary-color: #6a0572; /* Darker Purple */
-            --accent-color: #00bcd4; /* Bright Cyan */
-            --text-light: #f8f8f8;
-            --text-dark: #333;
-
-            /* Gradients */
-            --gradient-dark: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); /* Dark blue to dark purple */
-            --gradient-light: linear-gradient(135deg, #8a2be2, #a044ff); /* Medium purple to light purple */
-
-            /* Glassmorphism */
-            --glass-bg: rgba(255, 255, 255, 0.1);
-            --glass-border: rgba(255, 255, 255, 0.2);
-            --glass-shadow: rgba(0, 0, 0, 0.1);
-
-            /* Transitions */
-            --transition-speed: 0.3s ease-out;
-            
-            /* Layout */
-            --container-max-width: 1200px;
-        }
-
         html {
             scroll-behavior: smooth;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            color: var(--text-light);
             line-height: 1.6;
         }
 
         body {
-            background: var(--gradient-dark);
-            overflow-x: hidden; /* Prevent horizontal scroll from reveal animations */
+            background: linear-gradient(135deg, var(--dark-background) 0%, #0f0f1b 100%);
+            color: var(--text-light);
+            overflow-x: hidden; /* Prevent horizontal scroll due to animations */
+        }
+
+        a {
+            color: var(--secondary-blue);
+            text-decoration: none;
+            transition: color var(--transition-speed);
+        }
+
+        a:hover {
+            color: var(--primary-purple);
+        }
+
+        h1, h2, h3 {
+            margin-bottom: 1rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, var(--secondary-blue), var(--primary-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        p {
+            margin-bottom: 1rem;
         }
 
         /* Utility Classes */
         .container {
-            max-width: var(--container-max-width);
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 0 1.5rem;
+            padding: 2rem;
+            position: relative;
+            z-index: 1; /* Ensure content is above potential background overlays */
         }
 
         .btn {
             display: inline-block;
             padding: 0.8rem 2rem;
             border-radius: 50px;
-            text-decoration: none;
+            background: linear-gradient(45deg, var(--secondary-blue), var(--primary-purple));
+            color: white;
             font-weight: bold;
-            transition: var(--transition-speed);
-            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
             border: none;
-            font-size: 1rem;
-            text-align: center;
+            cursor: pointer;
         }
 
-        .primary-btn {
-            background: var(--gradient-light);
-            color: var(--text-light);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .primary-btn:hover {
+        .btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-            opacity: 0.95;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Glassmorphism Effect */
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 15px;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            padding: 2rem;
+            margin: 1rem;
+            transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+            overflow: hidden; /* For inner content not to overflow rounded corners */
+        }
+
+        .glass-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.45);
         }
 
         /* Header & Navigation */
@@ -92,104 +110,148 @@
             top: 0;
             left: 0;
             width: 100%;
-            background: var(--gradient-dark);
-            padding: 1rem 0;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--glass-border);
             z-index: 1000;
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            transition: background var(--transition-speed), box-shadow var(--transition-speed);
         }
 
         .nav-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
         }
 
         .logo {
-            color: var(--text-light);
-            text-decoration: none;
             font-size: 1.8rem;
             font-weight: bold;
-            letter-spacing: 1px;
-            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            color: var(--text-light);
+            background: linear-gradient(45deg, var(--secondary-blue), var(--primary-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
         }
 
-        .nav-list {
+        .nav-links {
             list-style: none;
             display: flex;
         }
 
-        .nav-list li {
+        .nav-links li {
             margin-left: 2.5rem;
         }
 
-        .nav-link {
+        .nav-links a {
             color: var(--text-light);
-            text-decoration: none;
             font-weight: 500;
+            font-size: 1.1rem;
             position: relative;
-            padding-bottom: 0.3rem;
-            transition: var(--transition-speed);
+            transition: color var(--transition-speed);
         }
 
-        .nav-link::after {
+        .nav-links a::after {
             content: '';
             position: absolute;
-            left: 0;
-            bottom: 0;
             width: 0;
-            height: 2px;
-            background-color: var(--accent-color);
-            transition: var(--transition-speed);
+            height: 3px;
+            background: var(--primary-purple);
+            left: 0;
+            bottom: -8px;
+            transition: width var(--transition-speed);
         }
 
-        .nav-link:hover::after,
-        .nav-link.active::after {
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
             width: 100%;
         }
         
-        .nav-link.active {
-            color: var(--accent-color);
-            text-shadow: 0 0 5px rgba(0, 188, 212, 0.5); /* Subtle glow for active link */
+        .nav-links a.active {
+            color: var(--primary-purple);
         }
 
+        /* Hamburger Menu */
         .hamburger {
-            display: none; /* Hidden on desktop */
-            width: 30px;
-            height: 20px;
-            background: transparent;
-            border: none;
-            cursor: pointer;
-            position: relative;
-            z-index: 1001;
-            padding: 0;
+            display: none;
             flex-direction: column;
-            justify-content: space-between;
+            cursor: pointer;
+            z-index: 1001;
+            padding: 0.5rem;
         }
 
-        .hamburger .bar {
-            display: block;
-            width: 100%;
-            height: 2px;
-            background-color: var(--text-light);
+        .hamburger span {
+            height: 3px;
+            width: 25px;
+            background: var(--text-light);
+            margin: 4px 0;
+            transition: all 0.3s ease;
             border-radius: 2px;
-            transition: all var(--transition-speed);
         }
 
-        .hamburger .bar:nth-child(2) {
-            margin-top: 6px;
-            margin-bottom: 6px;
+        /* Hamburger menu animations */
+        .hamburger.active span:nth-child(1) {
+            transform: translateY(7px) rotate(45deg);
         }
 
-        .hamburger.active .bar:nth-child(2) {
+        .hamburger.active span:nth-child(2) {
             opacity: 0;
         }
 
-        .hamburger.active .bar:nth-child(1) {
-            transform: translateY(8px) rotate(45deg);
+        .hamburger.active span:nth-child(3) {
+            transform: translateY(-7px) rotate(-45deg);
         }
 
-        .hamburger.active .bar:nth-child(3) {
-            transform: translateY(-8px) rotate(-45deg);
+        /* Mobile Nav Menu */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 80px; /* Adjust based on header height */
+                left: 0;
+                width: 100%;
+                background: var(--glass-bg);
+                backdrop-filter: blur(15px);
+                border-bottom: 1px solid var(--glass-border);
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+                padding: 1rem 0;
+                opacity: 0;
+                transform: translateY(-20px);
+                transition: opacity var(--transition-speed), transform var(--transition-speed);
+                pointer-events: none; /* Disable interaction when hidden */
+            }
+
+            .nav-links.active {
+                display: flex;
+                opacity: 1;
+                transform: translateY(0);
+                pointer-events: auto; /* Enable interaction when active */
+            }
+
+            .nav-links li {
+                margin: 0.5rem 0;
+                text-align: center;
+            }
+
+            .nav-links a {
+                display: block;
+                padding: 0.8rem 1rem;
+                font-size: 1.2rem;
+            }
+            
+            .nav-links a::after {
+                height: 2px;
+                bottom: -4px;
+            }
+
+            .hamburger {
+                display: flex;
+            }
         }
 
         /* Main Sections */
@@ -198,366 +260,259 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 8rem 0 4rem; /* Adjust for fixed header */
+            padding-top: 80px; /* Offset for fixed header */
             position: relative;
-            overflow: hidden; /* Hide reveal overflow */
+            overflow: hidden; /* For reveal animations */
+        }
+        
+        .section:nth-child(odd) {
+            background: linear-gradient(135deg, var(--dark-background) 0%, #0f0f1b 100%);
         }
 
-        .section .content {
+        .section:nth-child(even) {
+            background: linear-gradient(135deg, #0f0f1b 0%, var(--dark-background) 100%);
+        }
+
+        .section-content {
             text-align: center;
-            max-width: 800px;
-            padding: 2rem;
-            border-radius: 15px;
-            background: var(--glass-bg);
-            backdrop-filter: blur(10px);
-            border: 1px solid var(--glass-border);
-            box-shadow: 0 8px 32px var(--glass-shadow);
-        }
-
-        .section h1, .section h2 {
-            font-size: 3.5rem;
-            margin-bottom: 1.5rem;
-            color: var(--accent-color);
-            text-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
-            line-height: 1.2;
-        }
-
-        .section h2 {
-            font-size: 2.8rem;
-        }
-
-        .section p {
-            font-size: 1.15rem;
-            margin-bottom: 1.5rem;
-            color: var(--text-light);
-        }
-
-        /* Hero Section */
-        .hero {
-            background: url('https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2') center center/cover no-repeat;
-            position: relative;
-            display: flex; /* Ensure content is centered over background */
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.6); /* Dark overlay for text readability */
-            z-index: 1;
-        }
-
-        .hero .content {
+            max-width: 900px;
+            margin: 0 auto;
             position: relative;
             z-index: 2;
-            padding: 3rem;
+            padding: 2rem;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 1s ease-out, transform 1s ease-out;
         }
 
-        /* About Section */
-        .about {
-            background: var(--gradient-light);
+        .section-content.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .section#home .section-content {
+            opacity: 1; /* Home section is visible by default */
+            transform: translateY(0);
         }
 
-        /* Menu Section */
-        .menu {
-            background: var(--gradient-dark);
-        }
-
-        .menu-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-            justify-content: center; /* Center items if they don't fill a row */
-        }
-
-        .menu-card {
-            background: var(--glass-bg);
-            backdrop-filter: blur(10px);
-            border: 1px solid var(--glass-border);
-            box-shadow: 0 4px 30px var(--glass-shadow);
-            border-radius: 15px;
-            overflow: hidden;
-            text-align: left;
-            transition: transform var(--transition-speed), box-shadow var(--transition-speed);
-            position: relative;
-            padding: 1.5rem;
+        /* Specific Section Styles */
+        #home {
+            background: linear-gradient(135deg, var(--primary-purple) 0%, var(--secondary-blue) 100%);
+            color: white;
+            padding-top: 0; /* No offset needed, it's the first section */
+            min-height: 100vh;
             display: flex;
-            flex-direction: column;
-            justify-content: space-between; /* Push price to bottom */
+            align-items: center;
+            justify-content: center;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
         }
 
-        .menu-card:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 10px 40px var(--glass-shadow);
+        #home h1 {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            background: none; /* Override gradient for white text on colored background */
+            -webkit-text-fill-color: white;
+            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
         }
 
-        .menu-card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 10px;
-            margin-bottom: 1rem;
-        }
-
-        .menu-card h3 {
+        #home p {
             font-size: 1.5rem;
-            color: var(--accent-color);
-            margin-bottom: 0.5rem;
-        }
-
-        .menu-card p {
-            font-size: 0.95rem;
-            color: var(--text-light);
-            margin-bottom: 1rem;
-            flex-grow: 1; /* Allow description to take available space */
-        }
-
-        .menu-card .price {
-            font-size: 1.3rem;
-            font-weight: bold;
-            color: var(--gradient-light); /* Use a subtle gradient for price */
-            display: inline-block;
-            background: var(--gradient-light);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .loading-message {
-            grid-column: 1 / -1; /* Span across all columns */
-            text-align: center;
-            font-size: 1.2rem;
-            color: var(--accent-color);
-            padding: 2rem;
-        }
-
-        /* Contact Section */
-        .contact {
-            background: url('https://images.pexels.com/photos/70497/pexels-photo-70497.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2') center center/cover no-repeat;
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .contact::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.65); /* Darker overlay */
-            z-index: 1;
-        }
-
-        .contact .content {
-            position: relative;
-            z-index: 2;
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-            text-align: left;
-            width: 100%; /* Take full width of container */
-        }
-
-        .contact h2, .contact p {
-            text-align: center;
-        }
-
-        .contact-info {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-            margin-bottom: 1rem;
-            max-width: 500px;
+            margin-bottom: 2.5rem;
+            max-width: 700px;
             margin-left: auto;
             margin-right: auto;
+        }
+        
+        #home .btn {
+            background: white;
+            color: var(--primary-purple);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        #home .btn:hover {
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+        }
+
+        #services .card-grid,
+        #achievements .card-grid,
+        #schedule .card-grid,
+        #insights .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        #services .service-card h3 {
+            margin-bottom: 0.8rem;
+        }
+
+        #services .service-card p {
+            font-size: 0.95rem;
+        }
+
+        #achievements .achievement-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        
+        #achievements .achievement-card .icon {
+            font-size: 3rem;
+            color: var(--secondary-blue);
+            margin-bottom: 1rem;
+        }
+
+        #schedule .schedule-card {
             text-align: left;
         }
         
-        .contact-info p {
-            font-size: 1.1rem;
-            margin-bottom: 0;
+        #schedule .schedule-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
         }
 
-        .contact-form {
+        #schedule .schedule-card p {
+            font-size: 1rem;
+            color: var(--text-light);
+        }
+
+        #insights .insight-card {
+            text-align: left;
+        }
+
+        #insights .insight-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+            line-height: 1.3;
+        }
+
+        #insights .insight-card p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 3; /* Limit to 3 lines */
+            -webkit-box-orient: vertical;
+        }
+
+        #insights .insight-card a {
+            display: inline-block;
+            margin-top: 0.8rem;
+            font-size: 0.9rem;
+            color: var(--primary-purple);
+            font-weight: bold;
+        }
+
+        #contact .contact-form {
             display: flex;
             flex-direction: column;
-            gap: 1rem;
-            margin-top: 1rem;
-            max-width: 500px;
-            margin-left: auto;
-            margin-right: auto;
+            gap: 1.5rem;
+            max-width: 600px;
+            margin: 2rem auto;
+            text-align: left;
         }
 
-        .contact-form input,
-        .contact-form textarea {
-            padding: 0.8rem 1rem;
-            border: 1px solid var(--glass-border);
-            border-radius: 8px;
-            background: rgba(255, 255, 255, 0.08);
+        #contact .contact-form label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
             color: var(--text-light);
-            font-family: inherit;
+        }
+
+        #contact .contact-form input,
+        #contact .contact-form textarea {
+            width: 100%;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 8px;
+            color: var(--text-light);
             font-size: 1rem;
-            transition: border-color var(--transition-speed), box-shadow var(--transition-speed);
-        }
-
-        .contact-form input::placeholder,
-        .contact-form textarea::placeholder {
-            color: rgba(255, 255, 255, 0.6);
-        }
-
-        .contact-form input:focus,
-        .contact-form textarea:focus {
             outline: none;
-            border-color: var(--accent-color);
-            box-shadow: 0 0 0 2px rgba(0, 188, 212, 0.3);
+            transition: border-color var(--transition-speed), background var(--transition-speed);
         }
 
-        .contact-form textarea {
+        #contact .contact-form input:focus,
+        #contact .contact-form textarea:focus {
+            border-color: var(--primary-purple);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        #contact .contact-form textarea {
             resize: vertical;
-            min-height: 100px;
+            min-height: 120px;
         }
-
-        .contact-form .btn {
-            align-self: flex-end; /* Align button to the right within the form */
+        
+        #contact .contact-form .btn {
+            width: auto; /* Override 100% width */
+            align-self: flex-start; /* Align button to the start */
+            margin-top: 1rem;
         }
 
         /* Footer */
         .footer {
-            background: var(--primary-color);
-            padding: 2rem 0;
+            background: linear-gradient(90deg, #0f0f1b, var(--dark-background));
+            padding: 2rem;
             text-align: center;
-            color: rgba(255, 255, 255, 0.7);
             font-size: 0.9rem;
-            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
+            color: var(--text-light);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
         }
 
-        /* Reveal on Scroll Animation */
-        .reveal {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-            will-change: opacity, transform;
-        }
-
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Responsive Design */
+        /* Responsive Adjustments */
         @media (max-width: 992px) {
-            .nav-list {
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background: var(--gradient-dark);
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                transform: translateX(100%);
-                transition: transform var(--transition-speed);
-                z-index: 999;
+            #home h1 {
+                font-size: 3rem;
             }
-
-            .nav-list.active {
-                transform: translateX(0);
-            }
-
-            .nav-list li {
-                margin: 1.5rem 0;
-            }
-
-            .nav-list .nav-link {
-                font-size: 1.8rem;
-                padding: 1rem 0;
-            }
-
-            .hamburger {
-                display: flex; /* Show hamburger on small screens */
-            }
-
-            .section h1 {
-                font-size: 2.8rem;
-            }
-
-            .section h2 {
-                font-size: 2.2rem;
-            }
-
-            .section p {
-                font-size: 1rem;
-            }
-
-            .hero .content {
-                padding: 2rem;
+            #home p {
+                font-size: 1.2rem;
             }
         }
 
         @media (max-width: 768px) {
-            .section {
-                padding: 6rem 0 3rem;
-            }
-
-            .section h1 {
-                font-size: 2.2rem;
-            }
-
-            .section h2 {
-                font-size: 1.8rem;
+            .container {
+                padding: 1rem;
             }
 
             .logo {
                 font-size: 1.5rem;
             }
 
-            .menu-grid {
-                grid-template-columns: 1fr;
+            #home h1 {
+                font-size: 2.5rem;
             }
 
-            .menu-card {
-                padding: 1rem;
-            }
-
-            .menu-card img {
-                height: 180px;
-            }
-
-            .menu-card h3 {
-                font-size: 1.3rem;
-            }
-
-            .menu-card p {
-                font-size: 0.9rem;
-            }
-
-            .menu-card .price {
-                font-size: 1.1rem;
-            }
-
-            .contact .content {
-                padding: 1.5rem;
-            }
-
-            .contact-info p {
+            #home p {
                 font-size: 1rem;
+            }
+            
+            .section {
+                padding-top: 60px; /* Smaller offset for smaller header */
+            }
+
+            .section-content {
+                padding: 1.5rem;
             }
         }
 
         @media (max-width: 480px) {
-            .container {
+            .nav-container {
                 padding: 0 1rem;
+            }
+
+            #home h1 {
+                font-size: 2rem;
+            }
+
+            #home p {
+                font-size: 0.9rem;
             }
 
             .btn {
@@ -565,247 +520,304 @@
                 font-size: 0.9rem;
             }
 
-            .logo {
-                font-size: 1.2rem;
-            }
-
-            .section h1 {
+            .section h2 {
                 font-size: 1.8rem;
             }
-
-            .section h2 {
-                font-size: 1.5rem;
+            
+            .card-grid {
+                grid-template-columns: 1fr; /* Stack cards vertically */
             }
 
-            .hero .content {
-                padding: 1.5rem;
+            .glass-card {
+                margin: 0.5rem 0;
             }
         }
     </style>
 </head>
 <body>
     <header class="header">
-        <div class="container nav-container">
-            <a href="#home" class="logo">Anjana Restaurant</a>
-            <nav class="nav">
-                <button class="hamburger" aria-label="Toggle navigation">
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                </button>
-                <ul class="nav-list">
-                    <li><a href="#home" class="nav-link active">Home</a></li>
-                    <li><a href="#about" class="nav-link">About Us</a></li>
-                    <li><a href="#menu" class="nav-link">Our Menu</a></li>
-                    <li><a href="#contact" class="nav-link">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
+        <nav class="nav-container">
+            <a href="#home" class="logo">RamaRaju Chess Academy</a>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#about" class="nav-link">About Us</a></li>
+                <li><a href="#services" class="nav-link">Services</a></li>
+                <li><a href="#achievements" class="nav-link">Achievements</a></li>
+                <li><a href="#schedule" class="nav-link">Schedule</a></li>
+                <li><a href="#insights" class="nav-link">Insights</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </nav>
     </header>
 
     <main>
-        <section id="home" class="hero section">
-            <div class="container content reveal">
-                <h1>Taste the Authenticity of India at Your Fingertips</h1>
-                <p>Order delicious, freshly prepared Indian cuisine online from Anjana Restaurant and experience culinary delight from the comfort of your home. We bring the rich flavors of India directly to you, making every meal a celebration.</p>
-                <a href="#menu" class="btn primary-btn">Explore Our Menu</a>
+        <section id="home" class="section">
+            <div class="section-content">
+                <h1>Master the Game of Kings with RamaRaju Chess Academy</h1>
+                <p>Unlock your strategic potential and conquer the chessboard from anywhere in the world. Join our online academy and transform your game!</p>
+                <a href="#services" class="btn">Explore Our Classes</a>
             </div>
         </section>
 
-        <section id="about" class="about section">
-            <div class="container content reveal">
-                <h2>Our Story, Our Passion</h2>
-                <p>Anjana Restaurant was born from a deep love for Indian culinary traditions. Our journey began with a simple goal: to share the rich, vibrant flavors of India with our community. Every dish is a testament to authentic recipes passed down through generations, prepared with the freshest ingredients and a touch of our heart.</p>
-                <p>We believe in creating not just meals, but experiences. From aromatic curries to sizzling tandoori delights, we invite you to savor the true essence of India, prepared with care and delivered with warmth.</p>
+        <section id="about" class="section">
+            <div class="container section-content">
+                <h2>About RamaRaju Chess Academy</h2>
+                <p>At RamaRaju Chess Academy, we believe in nurturing strategic minds and fostering a love for chess. Founded by Grandmaster RamaRaju, our academy provides world-class online chess education for players of all ages and skill levels. Our mission is to empower students with critical thinking, problem-solving skills, and the discipline essential for excelling in chess and in life.</p>
+                <p>We combine personalized coaching with interactive learning tools to create an engaging and effective online experience. Join our community of passionate chess players and discover the joy of continuous improvement.</p>
             </div>
         </section>
 
-        <section id="menu" class="menu section">
-            <div class="container content reveal">
-                <h2>Our Specialties - Freshly Prepared Daily</h2>
-                <p>Dive into our curated selection of Indian delicacies, crafted to perfection by our expert chefs. Discover your new favorite dish, from comforting classics to exciting new flavors!</p>
-                <div class="menu-grid" id="menu-items-container">
-                    <p class="loading-message">Loading delicious dishes...</p>
+        <section id="services" class="section">
+            <div class="container section-content">
+                <h2>Our Services</h2>
+                <p>We offer a diverse range of online chess programs designed to meet every student's needs and aspirations.</p>
+                <div class="card-grid">
+                    <div class="glass-card service-card">
+                        <h3>Beginner's Fundamentals</h3>
+                        <p>Learn the basics of chess, piece movements, essential rules, and opening principles. Perfect for new players of all ages.</p>
+                    </div>
+                    <div class="glass-card service-card">
+                        <h3>Intermediate Tactics & Strategy</h3>
+                        <p>Develop advanced tactical vision, strategic planning, and understanding of positional play. Elevate your game to the next level.</p>
+                    </div>
+                    <div class="glass-card service-card">
+                        <h3>Advanced Masterclass</h3>
+                        <p>Deep dive into complex openings, intricate endgames, and advanced psychological aspects of competitive chess. For aspiring professionals.</p>
+                    </div>
+                    <div class="glass-card service-card">
+                        <h3>Personalized Coaching</h3>
+                        <p>One-on-one sessions with our expert coaches to address specific weaknesses, refine strengths, and tailor a unique training plan.</p>
+                    </div>
+                    <div class="glass-card service-card">
+                        <h3>Tournament Preparation</h3>
+                        <p>Specialized training for competitive play, including time management, opening repertoire building, and psychological resilience.</p>
+                    </div>
+                    <div class="glass-card service-card">
+                        <h3>Online Group Classes</h3>
+                        <p>Engage with peers in interactive group sessions, fostering a collaborative learning environment and friendly competition.</p>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section id="contact" class="contact section">
-            <div class="container content reveal">
-                <h2>Connect With Us</h2>
-                <p>We'd love to hear from you! Whether you have a question, a special request, or just want to say hello, reach out to us. Your feedback helps us serve you better and continue our culinary journey.</p>
-                <div class="contact-info">
-                    <p><strong>Address:</strong> 123 Spice Route, Curry Town, Flavorsome State, 12345, India</p>
-                    <p><strong>Phone:</strong> <a href="tel:+911234567890" style="color: inherit; text-decoration: none;">+91 123 456 7890</a></p>
-                    <p><strong>Email:</strong> <a href="mailto:info@anjanarestaurant.com" style="color: inherit; text-decoration: none;">info@anjanarestaurant.com</a></p>
-                    <p><strong>Hours:</strong> Monday - Sunday: 11:00 AM - 10:00 PM</p>
+        <section id="achievements" class="section">
+            <div class="container section-content">
+                <h2>Our Students' Achievements</h2>
+                <p>We are incredibly proud of our students' dedication and success. Here are some highlights from their journey:</p>
+                <div class="card-grid">
+                    <div class="glass-card achievement-card">
+                        <span class="icon">&#9812;</span> <!-- Chess King icon -->
+                        <h3>National Junior Champion</h3>
+                        <p>Rahul S. secured the 1st position in the U-14 National Chess Championship after 2 years of training with us.</p>
+                    </div>
+                    <div class="glass-card achievement-card">
+                        <span class="icon">&#9817;</span> <!-- Chess Rook icon -->
+                        <h3>FIDE Rated Player</h3>
+                        <p>Ananya M. achieved a FIDE rating of 1800 within a year, demonstrating significant improvement and strategic mastery.</p>
+                    </div>
+                    <div class="glass-card achievement-card">
+                        <span class="icon">&#9814;</span> <!-- Chess Queen icon -->
+                        <h3>Inter-School Gold Medalist</h3>
+                        <p>Priya K. won the gold medal at the Inter-School Chess Tournament for three consecutive years.</p>
+                    </div>
+                    <div class="glass-card achievement-card">
+                        <span class="icon">&#9822;</span> <!-- Chess Knight icon -->
+                        <h3>District Level Champion</h3>
+                        <p>Arjun V. emerged as the District U-12 Chess Champion, showcasing exceptional tactical skills.</p>
+                    </div>
                 </div>
-                <form class="contact-form">
-                    <input type="text" placeholder="Your Name" required aria-label="Your Name">
-                    <input type="email" placeholder="Your Email" required aria-label="Your Email">
-                    <textarea placeholder="Your Message" rows="5" required aria-label="Your Message"></textarea>
-                    <button type="submit" class="btn primary-btn">Send Message</button>
+            </div>
+        </section>
+
+        <section id="schedule" class="section">
+            <div class="container section-content">
+                <h2>Class Schedule & Enrollment</h2>
+                <p>Our flexible online class schedule is designed to accommodate students across different time zones. Find a class that fits your routine!</p>
+                <div class="card-grid">
+                    <div class="glass-card schedule-card">
+                        <h3>Beginner Batch 1</h3>
+                        <p><strong>Days:</strong> Mon, Wed, Fri</p>
+                        <p><strong>Time:</strong> 4:00 PM - 5:00 PM (IST)</p>
+                        <p><strong>Focus:</strong> Chess Fundamentals</p>
+                        <a href="#" class="btn" style="background: var(--secondary-blue); font-size: 0.9rem; padding: 0.6rem 1.2rem;">Enroll Now</a>
+                    </div>
+                    <div class="glass-card schedule-card">
+                        <h3>Intermediate Batch 2</h3>
+                        <p><strong>Days:</strong> Tue, Thu</p>
+                        <p><strong>Time:</strong> 6:00 PM - 7:30 PM (IST)</p>
+                        <p><strong>Focus:</strong> Tactics & Strategy</p>
+                        <a href="#" class="btn" style="background: var(--secondary-blue); font-size: 0.9rem; padding: 0.6rem 1.2rem;">Enroll Now</a>
+                    </div>
+                    <div class="glass-card schedule-card">
+                        <h3>Advanced Masterclass</h3>
+                        <p><strong>Days:</strong> Sat</p>
+                        <p><strong>Time:</strong> 10:00 AM - 12:00 PM (IST)</p>
+                        <p><strong>Focus:</strong> Opening Repertoire & Endgames</p>
+                        <a href="#" class="btn" style="background: var(--secondary-blue); font-size: 0.9rem; padding: 0.6rem 1.2rem;">Enroll Now</a>
+                    </div>
+                </div>
+                <p style="margin-top: 2rem;">For a full calendar and personalized class options, please <a href="#contact">contact us</a>.</p>
+            </div>
+        </section>
+
+        <section id="insights" class="section">
+            <div class="container section-content">
+                <h2>Academy Insights & Chess Blog</h2>
+                <p>Stay updated with the latest in the chess world, learn new tips, and read articles from our coaches.</p>
+                <div id="blog-posts-container" class="card-grid">
+                    <!-- API fetched posts will be inserted here -->
+                    <div class="glass-card insight-card">
+                        <h3>Loading Insights...</h3>
+                        <p>Fetching the latest articles from our academy blog. Please wait a moment.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section">
+            <div class="container section-content">
+                <h2>Contact Us</h2>
+                <p>Have questions or ready to enroll? Reach out to us, and we'll be happy to assist you.</p>
+                <form class="contact-form glass-card">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" required>
+
+                    <label for="email">Your Email</label>
+                    <input type="email" id="email" name="email" required>
+
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" name="subject">
+
+                    <label for="message">Your Message</label>
+                    <textarea id="message" name="message" required></textarea>
+
+                    <button type="submit" class="btn">Send Message</button>
                 </form>
+                <p style="margin-top: 2rem;">You can also reach us directly at: <a href="mailto:info@ramarajuchess.com">info@ramarajuchess.com</a></p>
             </div>
         </section>
     </main>
 
     <footer class="footer">
-        <div class="container">
-            <p>&copy; 2023 Anjana Restaurant. All rights reserved.</p>
-        </div>
+        <p>&copy; 2023 RamaRaju Chess Academy. All rights reserved.</p>
     </footer>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const hamburger = document.querySelector('.hamburger');
-            const navList = document.querySelector('.nav-list');
-            const navLinks = document.querySelectorAll('.nav-link');
-            const sections = document.querySelectorAll('section');
-            const menuItemsContainer = document.getElementById('menu-items-container');
+            const navLinks = document.querySelector('.nav-links');
+            const sections = document.querySelectorAll('.section');
+            const navMenuLinks = document.querySelectorAll('.nav-link');
+            const sectionContents = document.querySelectorAll('.section-content');
 
-            // 1. Hamburger Menu Toggle
+            // --- Hamburger Menu Toggle ---
             hamburger.addEventListener('click', () => {
                 hamburger.classList.toggle('active');
-                navList.classList.toggle('active');
+                navLinks.classList.toggle('active');
             });
 
             // Close mobile nav when a link is clicked
-            navList.addEventListener('click', (e) => {
-                if (e.target.classList.contains('nav-link')) {
-                    hamburger.classList.remove('active');
-                    navList.classList.remove('active');
-                }
-            });
-
-            // 2. Smooth Scrolling & Active Nav Link on Scroll
-            // Root Margin: A value for the top, right, bottom, and left margins of the root.
-            // This defines the bounding box for checking intersection. '0px 0px -20% 0px' means
-            // the bottom 20% of the viewport is ignored, making sections active earlier.
-            const observerOptions = {
-                root: null, // viewport
-                rootMargin: '0px 0px -20% 0px', 
-                threshold: 0.5 // Section is considered active when 50% visible in the rootMargin adjusted area
-            };
-
-            const sectionObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        navLinks.forEach(link => {
-                            link.classList.remove('active');
-                            if (link.getAttribute('href') === `#${entry.target.id}`) {
-                                link.classList.add('active');
-                            }
-                        });
+            navLinks.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    if (navLinks.classList.contains('active')) {
+                        hamburger.classList.remove('active');
+                        navLinks.classList.remove('active');
                     }
                 });
-            }, observerOptions);
-
-            sections.forEach(section => {
-                sectionObserver.observe(section);
             });
 
-            // Handle the initial active state for the first section if page is loaded at top
-            if (sections.length > 0) {
-                const firstSectionId = sections[0].id;
-                const firstNavLink = document.querySelector(`.nav-link[href="#${firstSectionId}"]`);
-                if (firstNavLink) {
-                    firstNavLink.classList.add('active');
-                }
+            // --- Active Nav Link on Scroll ---
+            const options = {
+                root: null, // viewport
+                rootMargin: '0px',
+                threshold: 0.5 // Percentage of section visible before it's "active"
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    const id = entry.target.id;
+                    const navLink = document.querySelector(`.nav-links a[href="#${id}"]`);
+
+                    if (entry.isIntersecting) {
+                        // Remove 'active' from all links
+                        navMenuLinks.forEach(link => link.classList.remove('active'));
+                        // Add 'active' to the current section's link
+                        if (navLink) {
+                            navLink.classList.add('active');
+                        }
+                    }
+                });
+            }, options);
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+
+            // Initial active link setup for when page loads at the top
+            const firstNavLink = document.querySelector('.nav-links a[href="#home"]');
+            if (firstNavLink) {
+                firstNavLink.classList.add('active');
             }
 
 
-            // 3. Reveal on Scroll Effect
-            const revealElements = document.querySelectorAll('.reveal');
+            // --- Reveal on Scroll Effect ---
+            const revealOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.2 // Trigger when 20% of the element is visible
+            };
 
             const revealObserver = new IntersectionObserver((entries, observer) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        entry.target.classList.add('active');
-                        observer.unobserve(entry.target); // Stop observing once revealed
+                        entry.target.classList.add('revealed');
+                        revealObserver.unobserve(entry.target); // Stop observing once revealed
                     }
                 });
-            }, {
-                root: null,
-                rootMargin: '0px',
-                threshold: 0.1 // Reveal when 10% of the element is visible
+            }, revealOptions);
+
+            // Observe all section-content except for the home section-content
+            sectionContents.forEach(content => {
+                if (content.closest('section').id !== 'home') {
+                    revealObserver.observe(content);
+                }
             });
 
-            revealElements.forEach(el => {
-                revealObserver.observe(el);
-            });
-
-            // 4. Fetch API Data and Render Menu Cards
-            const fetchMenuData = async () => {
+            // --- Fetch API Data for Insights Section ---
+            const blogPostsContainer = document.getElementById('blog-posts-container');
+            const fetchPosts = async () => {
                 try {
-                    // Using FakestoreAPI to simulate food items
-                    // Fetch 6 products to display as food menu items
-                    const response = await fetch('https://fakestoreapi.com/products?limit=6');
+                    const response = await fetch('https://jsonplaceholder.typicode.com/posts?_limit=6'); // Fetch a few posts
                     if (!response.ok) {
                         throw new Error(`HTTP error! status: ${response.status}`);
                     }
-                    const products = await response.json();
+                    const posts = await response.json();
 
-                    // Clear loading message
-                    menuItemsContainer.innerHTML = '';
+                    blogPostsContainer.innerHTML = ''; // Clear loading message
 
-                    // Map products to menu items. We'll simulate food data from generic products.
-                    products.forEach(product => {
-                        const menuCard = document.createElement('div');
-                        menuCard.classList.add('menu-card');
-
-                        // Adapt API data to sound more like Indian food
-                        const foodNames = [
-                            "Spicy Chicken Tikka Masala", "Vegetable Korma", "Lamb Rogan Josh",
-                            "Paneer Butter Masala", "Dal Makhani Delight", "Goan Fish Curry",
-                            "Aloo Gobi", "Palak Paneer", "Biryani Special", "Tandoori Chicken"
-                        ];
-                        const foodName = foodNames[Math.floor(Math.random() * foodNames.length)];
-                        
-                        const foodDescriptions = [
-                            "A rich and creamy tomato-based curry, bursting with authentic Indian spices.",
-                            "A delightful medley of fresh vegetables simmered in a cashew-cream sauce.",
-                            "Tender lamb cooked in a fragrant onion and yogurt gravy.",
-                            "Soft paneer cubes in a luscious, mildly spiced tomato gravy.",
-                            "Slow-cooked black lentils in a buttery, smoky sauce, a true comfort food.",
-                            "Fresh fish cooked in a tangy coconut and red chili paste, a taste of coastal India."
-                        ];
-                        const foodDescription = foodDescriptions[Math.floor(Math.random() * foodDescriptions.length)];
-                        
-                        // Adjust price to be more typical for a restaurant menu item
-                        const foodPrice = (product.price * 0.5 + Math.random() * 10).toFixed(2); 
-
-                        menuCard.innerHTML = `
-                            <img src="${product.image}" alt="${foodName}" loading="lazy">
-                            <h3>${foodName}</h3>
-                            <p>${foodDescription}</p>
-                            <span class="price">$${foodPrice}</span>
+                    posts.forEach(post => {
+                        const card = document.createElement('div');
+                        card.classList.add('glass-card', 'insight-card');
+                        card.innerHTML = `
+                            <h3>${post.title}</h3>
+                            <p>${post.body}</p>
+                            <a href="#">Read More</a>
                         `;
-                        menuItemsContainer.appendChild(menuCard);
+                        blogPostsContainer.appendChild(card);
                     });
-
                 } catch (error) {
-                    console.error('Error fetching menu data:', error);
-                    menuItemsContainer.innerHTML = '<p class="loading-message" style="color: #ff6b6b;">Failed to load menu items. Please try again later.</p>';
+                    console.error('Error fetching blog posts:', error);
+                    blogPostsContainer.innerHTML = `<p class="glass-card" style="text-align: center;">Failed to load insights. Please try again later.</p>`;
                 }
             };
 
-            fetchMenuData();
-
-            // 5. Basic form submission (prevent default)
-            const contactForm = document.querySelector('.contact-form');
-            if (contactForm) {
-                contactForm.addEventListener('submit', (e) => {
-                    e.preventDefault(); // Prevent actual form submission
-                    alert('Thank you for your message! We will get back to you shortly.');
-                    contactForm.reset(); // Clear the form fields
-                });
-            }
+            fetchPosts();
         });
     </script>
 </body>
-<<<<<<< HEAD
 </html>
-=======
-</html>
->>>>>>> 8d8c2c6 (Update deploy_target with latest generated site)
