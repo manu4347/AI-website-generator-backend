@@ -4,45 +4,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Foodie's Delight - Authentic Indian Cuisine</title>
-    <!-- Favicon - You can generate one from your logo or use a generic food icon -->
-    <link rel="icon" type="image/png" href="https://www.flaticon.com/svg/static/icons/svg/857/857681.svg">
-
-    <!-- Google Fonts for modern typography -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Lora:wght@400;700&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
+    <title>SEN Cold Pressed Oils - Healthy & Natural</title>
+    <meta name="description" content="Discover premium quality cold pressed oils from SEN. Healthy, natural, and delivered to your doorstep.">
+    <meta name="keywords" content="cold pressed oil, healthy oil, natural oil, cooking oil, organic oil, SEN oils, online store">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        /*
-         * PRODUCTION-READY CSS STYLES
-         *
-         * This section defines the visual design of the Foodie's Delight website.
-         * It includes responsive design, modern aesthetics with gradients and animations,
-         * and a clean, maintainable structure using CSS variables.
-         */
-
-        /* --- CSS Variables --- */
+        /* Global Styles & Resets */
         :root {
-            --primary-color: #6a0572; /* Deep Purple */
-            --secondary-color: #9c27b0; /* Amethyst Purple */
-            --accent-color: #f7931e; /* Vibrant Orange for highlights */
-            --text-color: #333;
-            --light-text-color: #f5f5f5;
-            --background-light: #fdfdfd;
-            --background-dark: #2c003e; /* Darker purple for sections */
-            --gradient-main: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-            --gradient-dark: linear-gradient(135deg, #4a0050 0%, #6a0572 100%);
-            --shadow-light: 0 4px 15px rgba(0, 0, 0, 0.1);
-            --shadow-deep: 0 8px 30px rgba(0, 0, 0, 0.25);
-            --border-radius: 8px;
+            --primary-gradient: linear-gradient(135deg, #7F00FF, #E100FF); /* Deep Purple to Bright Purple */
+            --secondary-gradient: linear-gradient(135deg, #4A00E0, #8E2DE2); /* Dark Blue Purple to Lighter Purple */
+            --light-gradient: linear-gradient(135deg, #e0f2f7, #c1e0ed); /* Light Blue for backgrounds */
+            --text-dark: #2c3e50; /* Dark gray for text */
+            --text-light: #ecf0f1; /* Light gray for text */
+            --accent-blue: #007bff; /* Bright blue for accents */
+            --bg-white: #ffffff;
+            --box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
             --transition-speed: 0.3s ease;
-            --max-width: 1200px;
-            --section-padding: 80px 20px;
         }
 
-        /* --- Global Resets & Base Styles --- */
         * {
             margin: 0;
             padding: 0;
@@ -54,141 +35,112 @@
         }
 
         body {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Montserrat', sans-serif;
             line-height: 1.6;
-            color: var(--text-color);
-            background-color: var(--background-light);
-            -webkit-font-smoothing: antialiased;
-            overflow-x: hidden; /* Prevent horizontal scroll from animations */
-        }
-
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Lora', serif;
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-            line-height: 1.2;
-        }
-
-        h1 { font-size: 3.5rem; }
-        h2 { font-size: 2.8rem; }
-        h3 { font-size: 2rem; }
-
-        p {
-            margin-bottom: 1rem;
+            color: var(--text-dark);
+            background-color: #f8f9fa; /* Very light gray background */
         }
 
         a {
             text-decoration: none;
-            color: var(--secondary-color);
-            transition: color var(--transition-speed);
-        }
-
-        a:hover {
-            color: var(--accent-color);
+            color: inherit;
         }
 
         ul {
             list-style: none;
         }
 
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
         .container {
-            max-width: var(--max-width);
+            max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
 
-        .section-padding {
-            padding: var(--section-padding);
-        }
-
-        /* --- Buttons --- */
+        /* Utility Classes */
+        .text-center { text-align: center; }
         .btn {
             display: inline-block;
-            padding: 12px 28px;
+            padding: 12px 25px;
             border-radius: 50px;
             font-weight: 600;
-            text-align: center;
-            white-space: nowrap;
-            cursor: pointer;
-            transition: all var(--transition-speed);
+            transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-primary {
+            background: var(--primary-gradient);
+            color: var(--text-light);
             border: none;
-            box-shadow: var(--shadow-light);
-            font-size: 1rem;
         }
 
-        .btn.primary-btn {
-            background: var(--gradient-main);
-            color: var(--light-text-color);
-            box-shadow: 0 5px 20px rgba(106, 5, 114, 0.4);
-        }
-
-        .btn.primary-btn:hover {
-            background: var(--gradient-dark);
+        .btn-primary:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(106, 5, 114, 0.6);
+            box-shadow: 0 8px 25px rgba(127, 0, 255, 0.3);
         }
 
-        .btn.secondary-btn {
-            background-color: var(--background-light);
-            color: var(--primary-color);
-            border: 2px solid var(--primary-color);
-            box-shadow: none;
+        .section-heading {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8em;
+            margin-bottom: 40px;
+            color: var(--text-dark);
+            position: relative;
+            display: inline-block;
         }
 
-        .btn.secondary-btn:hover {
-            background-color: var(--primary-color);
-            color: var(--light-text-color);
-            transform: translateY(-3px);
+        .section-heading::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--primary-gradient);
+            border-radius: 2px;
         }
 
-        .btn.large-btn {
-            padding: 16px 36px;
-            font-size: 1.15rem;
-        }
-
-        /* --- Header & Navigation --- */
-        header {
-            background: var(--gradient-main);
-            color: var(--light-text-color);
-            padding: 1rem 0;
+        /* Header */
+        .header {
+            background-color: var(--bg-white);
+            box-shadow: var(--box-shadow);
+            padding: 15px 0;
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: var(--shadow-light);
         }
 
-        nav {
+        .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            max-width: var(--max-width);
-            margin: 0 auto;
-            padding: 0 20px;
         }
 
         .logo {
-            font-family: 'Lora', serif;
-            font-size: 1.8rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 2em;
             font-weight: 700;
-            color: var(--light-text-color);
-            transition: color var(--transition-speed);
-        }
-
-        .logo:hover {
-            color: var(--accent-color);
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: transparent; /* Fallback for browsers that don't support text-fill-color */
         }
 
         .nav-links {
             display: flex;
-            align-items: center;
-            gap: 2rem;
+            gap: 30px;
         }
 
         .nav-links a {
-            color: var(--light-text-color);
-            font-weight: 400;
-            padding: 5px 0;
+            font-weight: 500;
+            color: var(--text-dark);
             position: relative;
+            padding: 5px 0;
             transition: color var(--transition-speed);
         }
 
@@ -199,822 +151,757 @@
             bottom: 0;
             width: 0;
             height: 2px;
-            background-color: var(--accent-color);
+            background: var(--primary-gradient);
             transition: width var(--transition-speed);
         }
 
-        .nav-links a:hover::after {
+        .nav-links a:hover {
+            color: #8E2DE2; /* Lighter shade of purple */
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
             width: 100%;
         }
 
-        /* Hamburger menu for mobile */
         .hamburger {
             display: none;
-            flex-direction: column;
             cursor: pointer;
-            gap: 6px;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 20px;
         }
 
         .hamburger span {
             display: block;
-            width: 25px;
-            height: 3px;
-            background-color: var(--light-text-color);
+            width: 100%;
+            height: 2px;
+            background-color: var(--text-dark);
             transition: all var(--transition-speed);
-            border-radius: 2px;
         }
 
-        /* Hamburger animation */
-        .hamburger.active span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
-        .hamburger.active span:nth-child(2) { opacity: 0; }
-        .hamburger.active span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
-
-
-        /* --- Hero Section --- */
-        .hero-section {
-            background: url('https://images.unsplash.com/photo-1563630380-49666012690f?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center/cover;
-            color: var(--light-text-color);
+        /* Hero Section */
+        .hero {
+            background: var(--secondary-gradient);
+            color: var(--text-light);
+            padding: 100px 0;
             text-align: center;
-            padding: 120px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 60vh;
             position: relative;
+            overflow: hidden;
         }
 
-        .hero-section::before {
+        .hero::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.6); /* Dark overlay */
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 10% 10%, rgba(255,255,255,0.05) 0%, transparent 40%),
+                        radial-gradient(circle at 90% 90%, rgba(255,255,255,0.05) 0%, transparent 40%);
+            animation: pulseBg 20s infinite alternate;
+        }
+
+        @keyframes pulseBg {
+            0% { transform: scale(1); opacity: 0.8; }
+            100% { transform: scale(1.1); opacity: 1; }
         }
 
         .hero-content {
             position: relative;
             z-index: 1;
             max-width: 800px;
-            margin: 0 auto;
         }
 
-        .hero-content h1 {
-            font-size: 4.5rem;
-            margin-bottom: 1.5rem;
-            color: var(--light-text-color);
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.8em;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            animation: fadeInDown 1s ease-out;
         }
 
-        .hero-content p {
-            font-size: 1.4rem;
-            margin-bottom: 2.5rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-            color: var(--light-text-color);
-            opacity: 0.9;
+        .hero p {
+            font-size: 1.3em;
+            margin-bottom: 40px;
+            font-weight: 300;
+            animation: fadeInUp 1s ease-out 0.3s forwards;
+            opacity: 0; /* Start hidden for animation */
         }
 
-        /* --- About Section --- */
-        .about-section {
-            background-color: var(--background-light);
+        .hero .btn {
+            font-size: 1.1em;
+            padding: 15px 35px;
+            background: var(--bg-white);
+            color: #8E2DE2;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            animation: fadeInUp 1s ease-out 0.6s forwards;
+            opacity: 0; /* Start hidden for animation */
+        }
+
+        .hero .btn:hover {
+            background: #f0f0f0;
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Sections */
+        section {
+            padding: 80px 0;
+            background-color: var(--bg-white);
+            margin-bottom: 20px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+            border-radius: 8px;
+        }
+        
+        section:nth-of-type(odd) {
+            background-color: var(--light-gradient);
+        }
+
+        /* About Section */
+        #about {
             text-align: center;
-        }
-
-        .about-section h2 {
-            color: var(--primary-color);
-            margin-bottom: 3rem;
-            position: relative;
-            display: inline-block;
-        }
-        .about-section h2::after {
-            content: '';
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            bottom: -10px;
-            width: 80px;
-            height: 4px;
-            background: var(--gradient-main);
-            border-radius: 2px;
         }
 
         .about-content {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            gap: 40px;
-            text-align: left;
-        }
-
-        .about-image {
-            flex: 1;
-            min-width: 300px;
-            box-shadow: var(--shadow-deep);
-            border-radius: var(--border-radius);
-            overflow: hidden;
-        }
-
-        .about-image img {
-            width: 100%;
-            height: auto;
-            display: block;
-            transition: transform 0.5s ease;
-        }
-
-        .about-image:hover img {
-            transform: scale(1.05);
-        }
-
-        .about-text {
-            flex: 2;
-            min-width: 300px;
-        }
-
-        .about-text h3 {
-            color: var(--secondary-color);
-            margin-bottom: 1.5rem;
-        }
-
-        /* --- Menu Section --- */
-        .menu-section {
-            background: var(--gradient-dark);
-            color: var(--light-text-color);
-            text-align: center;
-        }
-
-        .menu-section h2 {
-            color: var(--light-text-color);
-            margin-bottom: 1rem;
-            position: relative;
-            display: inline-block;
-        }
-        .menu-section h2::after {
-            content: '';
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            bottom: -10px;
-            width: 80px;
-            height: 4px;
-            background-color: var(--accent-color);
-            border-radius: 2px;
-        }
-
-        .menu-tagline {
-            font-size: 1.2rem;
-            margin-bottom: 3rem;
-            opacity: 0.8;
-        }
-
-        .menu-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            justify-content: center;
-        }
-
-        .menu-item {
-            background-color: var(--background-light);
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow-light);
-            overflow: hidden;
-            text-align: left;
-            transition: transform var(--transition-speed), box-shadow var(--transition-speed);
-            position: relative;
-        }
-
-        .menu-item:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-deep);
-        }
-
-        .menu-item-image {
-            width: 100%;
-            height: 220px;
-            overflow: hidden;
-            display: flex; /* For centering the image if needed */
-            justify-content: center;
-            align-items: center;
-        }
-
-        .menu-item-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover; /* Ensures image covers the area, crops if necessary */
-            display: block;
-            transition: transform 0.5s ease;
-        }
-        .menu-item:hover .menu-item-image img {
-            transform: scale(1.08);
-        }
-
-        .menu-item-content {
-            padding: 20px;
-            color: var(--text-color);
-        }
-
-        .menu-item-content h3 {
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-            color: var(--primary-color);
-            white-space: nowrap; /* Prevent wrapping */
-            overflow: hidden; /* Hide overflow */
-            text-overflow: ellipsis; /* Add ellipsis */
-        }
-
-        .menu-item-content p {
-            font-size: 0.95rem;
-            color: #666;
-            margin-bottom: 1rem;
-            display: -webkit-box;
-            -webkit-line-clamp: 3; /* Limit to 3 lines */
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-        }
-
-        .menu-item-price {
-            font-size: 1.6rem;
-            font-weight: 700;
-            color: var(--accent-color);
-            margin-top: auto; /* Push price to bottom in flex column */
-            display: block; /* Ensure it takes full width */
-            margin-bottom: 1.5rem;
-        }
-
-        .menu-item .btn {
-            width: calc(100% - 40px); /* Adjust for padding */
-            margin-top: auto; /* Push button to bottom */
-        }
-
-        .loading-spinner {
-            border: 5px solid rgba(255, 255, 255, 0.3);
-            border-top: 5px solid var(--accent-color);
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            animation: spin 1s linear infinite;
-            margin: 50px auto;
-            display: block; /* Ensure it's visible */
-            grid-column: 1 / -1; /* Span across all columns in grid */
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        /* --- Contact Section --- */
-        .contact-section {
-            background-color: var(--background-light);
-            text-align: center;
-        }
-
-        .contact-section h2 {
-            color: var(--primary-color);
-            margin-bottom: 3rem;
-            position: relative;
-            display: inline-block;
-        }
-        .contact-section h2::after {
-            content: '';
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            bottom: -10px;
-            width: 80px;
-            height: 4px;
-            background: var(--gradient-main);
-            border-radius: 2px;
-        }
-
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-            text-align: left;
-        }
-
-        .contact-info, .contact-form {
-            background-color: #fff;
-            padding: 30px;
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow-light);
-        }
-
-        .contact-info h3, .contact-form h3 {
-            color: var(--secondary-color);
-            margin-bottom: 1.5rem;
-        }
-
-        .contact-info p {
-            margin-bottom: 0.8rem;
-            display: flex;
-            align-items: center;
-            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.1em;
             color: #555;
         }
 
-        .contact-info p i {
-            color: var(--accent-color);
-            margin-right: 15px;
-            font-size: 1.3rem;
-            width: 25px; /* Fixed width for consistent alignment */
+        .about-content h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: var(--text-dark);
         }
 
-        .social-links {
-            margin-top: 2rem;
-            display: flex;
-            gap: 15px;
+        .about-content p {
+            margin-bottom: 20px;
         }
 
-        .social-links a {
-            display: inline-flex;
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            background: var(--gradient-main);
-            color: var(--light-text-color);
-            font-size: 1.3rem;
-            justify-content: center;
-            align-items: center;
+        /* Products Section */
+        #products {
+            text-align: center;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .product-card {
+            background-color: var(--bg-white);
+            border-radius: 12px;
+            box-shadow: var(--box-shadow);
+            padding: 25px;
+            text-align: left;
             transition: transform var(--transition-speed), box-shadow var(--transition-speed);
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
-        .social-links a:hover {
-            transform: translateY(-5px) scale(1.1);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-            background: var(--gradient-dark);
-            color: var(--accent-color);
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
         }
 
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-            color: var(--primary-color);
-        }
-
-        .form-group input,
-        .form-group textarea {
+        .product-card img {
             width: 100%;
-            padding: 12px 15px;
+            height: 200px; /* Fixed height for product images */
+            object-fit: contain; /* Ensure image fits without cropping */
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .product-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            color: #4A00E0;
+        }
+
+        .product-card p.category {
+            font-size: 0.9em;
+            color: #888;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+        
+        .product-card p.description {
+            font-size: 0.95em;
+            color: #666;
+            margin-bottom: 15px;
+            flex-grow: 1; /* Allow description to take up available space */
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 3; /* Limit description to 3 lines */
+            -webkit-box-orient: vertical;
+        }
+
+        .product-card .price {
+            font-size: 1.8em;
+            font-weight: 700;
+            color: #7F00FF;
+            margin-bottom: 20px;
+        }
+
+        .product-card .btn-add-to-cart {
+            width: 100%;
+            padding: 10px 15px;
+            font-size: 1.1em;
+            background: var(--primary-gradient);
+            color: var(--text-light);
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background var(--transition-speed), transform var(--transition-speed);
+        }
+
+        .product-card .btn-add-to-cart:hover {
+            background: var(--secondary-gradient);
+            transform: scale(1.02);
+        }
+
+        /* Contact Section */
+        #contact {
+            text-align: center;
+        }
+
+        .contact-form-wrapper {
+            max-width: 700px;
+            margin: 40px auto 0;
+            background-color: var(--bg-white);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: var(--box-shadow);
+        }
+
+        .contact-form label {
+            display: block;
+            text-align: left;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .contact-form input[type="text"],
+        .contact-form input[type="email"],
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
             border: 1px solid #ddd;
-            border-radius: var(--border-radius);
-            font-family: 'Poppins', sans-serif;
-            font-size: 1rem;
-            color: var(--text-color);
-            transition: border-color var(--transition-speed), box-shadow var(--transition-speed);
+            border-radius: 8px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1em;
+            transition: border-color var(--transition-speed);
         }
 
-        .form-group input:focus,
-        .form-group textarea:focus {
+        .contact-form input[type="text"]:focus,
+        .contact-form input[type="email"]:focus,
+        .contact-form textarea:focus {
+            border-color: #8E2DE2;
             outline: none;
-            border-color: var(--secondary-color);
-            box-shadow: 0 0 0 3px rgba(156, 39, 176, 0.2);
+            box-shadow: 0 0 0 3px rgba(142, 45, 226, 0.2);
         }
 
-        .form-group textarea {
+        .contact-form textarea {
             resize: vertical;
             min-height: 120px;
         }
 
-        .contact-form .btn {
-            width: 100%;
+        .contact-form .btn-primary {
+            width: auto; /* Override full width if needed */
         }
 
-        /* --- Footer --- */
-        footer {
-            background: var(--gradient-dark);
-            color: var(--light-text-color);
+        /* Footer */
+        .footer {
+            background: var(--secondary-gradient);
+            color: var(--text-light);
+            padding: 40px 0;
             text-align: center;
-            padding: 40px 20px;
-            margin-top: 50px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 0; /* Remove top margin from default section */
+            border-radius: 0; /* Remove border-radius from default section */
+            box-shadow: none; /* Remove box-shadow from default section */
         }
 
-        footer .container {
+        .footer .logo {
+            color: var(--text-light); /* Override logo gradient for footer */
+            -webkit-text-fill-color: var(--text-light); /* Ensure text color is light */
+            background: none;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+
+        .footer-nav ul {
             display: flex;
-            flex-direction: column;
-            align-items: center;
             justify-content: center;
-            gap: 15px;
+            gap: 25px;
+            margin-bottom: 20px;
+            flex-wrap: wrap; /* Allow wrapping on smaller screens */
         }
 
-        footer p {
-            margin-bottom: 0;
-            font-size: 0.9rem;
+        .footer-nav a {
+            color: var(--text-light);
+            font-weight: 400;
+            transition: color var(--transition-speed);
+        }
+
+        .footer-nav a:hover {
+            color: #d1c4e9; /* Lighter purple on hover */
+        }
+
+        .social-icons {
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            display: inline-block;
+            margin: 0 10px;
+            color: var(--text-light);
+            font-size: 1.5em;
+            transition: transform var(--transition-speed);
+        }
+
+        .social-icons a:hover {
+            transform: translateY(-5px) scale(1.1);
+        }
+
+        .footer p {
+            margin-top: 30px;
+            font-size: 0.9em;
             opacity: 0.8;
         }
 
-        .footer-links {
-            display: flex;
-            gap: 20px;
-            margin-top: 10px;
-        }
-
-        .footer-links a {
-            color: var(--light-text-color);
-            font-size: 0.9rem;
-            opacity: 0.7;
-            transition: opacity var(--transition-speed), color var(--transition-speed);
-        }
-
-        .footer-links a:hover {
-            opacity: 1;
-            color: var(--accent-color);
-        }
-
-        /* --- Responsive Design (Media Queries) --- */
+        /* Responsive Design */
         @media (max-width: 992px) {
-            h1 { font-size: 3.8rem; }
-            h2 { font-size: 2.4rem; }
-            h3 { font-size: 1.8rem; }
-
-            .hero-content h1 {
-                font-size: 3.5rem;
+            .hero h1 {
+                font-size: 3em;
             }
-            .hero-content p {
-                font-size: 1.2rem;
+            .hero p {
+                font-size: 1.1em;
             }
-
-            .about-content {
-                flex-direction: column;
-                text-align: center;
+            .section-heading {
+                font-size: 2.4em;
             }
-            .about-text, .about-image {
-                flex: none; /* Remove flex basis */
-                width: 100%;
+            .nav-links {
+                gap: 20px;
+            }
+            .product-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             }
         }
 
         @media (max-width: 768px) {
-            h1 { font-size: 3rem; }
-            h2 { font-size: 2rem; }
-            h3 { font-size: 1.6rem; }
-
-            .section-padding {
-                padding: 60px 20px;
-            }
-
-            /* Header & Navigation adjustments */
-            .nav-links {
-                position: absolute;
-                top: 70px; /* Below header */
-                left: 0;
-                width: 100%;
-                background: var(--gradient-main);
-                flex-direction: column;
-                height: 0;
-                overflow: hidden;
-                transition: height var(--transition-speed);
-                box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
-            }
-
-            .nav-links.active {
-                height: auto; /* Or specific max-height */
-                padding-bottom: 20px;
-            }
-
-            .nav-links li {
-                width: 100%;
-                text-align: center;
+            .header {
                 padding: 10px 0;
             }
-
-            .nav-links li:last-child {
-                margin-top: 10px; /* Space for the order button */
+            .navbar {
+                flex-wrap: wrap;
+                justify-content: space-between;
+                padding: 0 20px;
             }
-
-            .nav-links a {
-                padding: 10px 0;
-                display: block;
+            .logo {
+                font-size: 1.8em;
             }
-
             .hamburger {
                 display: flex;
             }
-
-            .hero-content {
-                padding: 0 10px;
-            }
-            .hero-content h1 {
-                font-size: 2.8rem;
-            }
-            .hero-content p {
-                font-size: 1rem;
-            }
-            .btn.large-btn {
-                padding: 12px 28px;
-                font-size: 1rem;
-            }
-
-            .menu-grid {
-                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            }
-
-            .contact-grid {
-                grid-template-columns: 1fr;
-            }
-
-            footer .container {
+            .nav-links {
                 flex-direction: column;
-                gap: 10px;
+                width: 100%;
+                text-align: center;
+                background-color: var(--bg-white);
+                position: absolute;
+                top: 60px; /* Adjust based on header height */
+                left: 0;
+                padding: 20px 0;
+                box-shadow: var(--box-shadow);
+                display: none; /* Hidden by default */
+                transition: transform var(--transition-speed) ease-out;
+                transform: translateY(-100%);
             }
-            .footer-links {
-                flex-direction: column;
-                gap: 8px;
+            .nav-links.active {
+                display: flex;
+                transform: translateY(0);
+            }
+            .nav-links a {
+                padding: 15px 0;
+                border-bottom: 1px solid #eee;
+                width: 100%;
+            }
+            .nav-links a:last-child {
+                border-bottom: none;
+            }
+            .nav-links a::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            .hero {
+                padding: 80px 0;
+                min-height: 50vh;
+            }
+            .hero h1 {
+                font-size: 2.5em;
+            }
+            .hero p {
+                font-size: 1em;
+            }
+            section {
+                padding: 60px 0;
+            }
+            .section-heading {
+                font-size: 2em;
+                margin-bottom: 30px;
+            }
+            .about-content, .contact-form-wrapper {
+                padding: 30px;
+            }
+            .product-grid {
+                grid-template-columns: 1fr; /* Single column on very small screens */
             }
         }
 
         @media (max-width: 480px) {
-            h1 { font-size: 2.5rem; }
-            h2 { font-size: 1.8rem; }
-            h3 { font-size: 1.4rem; }
-
-            .hero-section {
-                padding: 80px 15px;
+            .hero h1 {
+                font-size: 2em;
             }
-            .hero-content h1 {
-                font-size: 2.2rem;
+            .hero p {
+                font-size: 0.9em;
             }
-            .hero-content p {
-                font-size: 0.9rem;
-            }
-
-            .btn {
-                padding: 10px 20px;
-                font-size: 0.9rem;
-            }
-            .btn.large-btn {
+            .hero .btn {
                 padding: 10px 25px;
+                font-size: 1em;
             }
-
-            .logo {
-                font-size: 1.5rem;
+            .section-heading {
+                font-size: 1.8em;
             }
-
-            .menu-item-content h3 {
-                font-size: 1.3rem;
-            }
-            .menu-item-price {
-                font-size: 1.4rem;
-            }
-
-            .social-links {
-                justify-content: center;
-            }
-            .contact-info p {
-                font-size: 1rem;
-            }
-            .contact-info p i {
-                font-size: 1.1rem;
+            .footer-nav ul {
+                flex-direction: column;
+                gap: 10px;
             }
         }
+
+        /* Hamburger animation */
+        .hamburger.active span:nth-child(1) {
+            transform: translateY(9px) rotate(45deg);
+        }
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        .hamburger.active span:nth-child(3) {
+            transform: translateY(-9px) rotate(-45deg);
+        }
+
+        /* Basic icon styling for demonstration, ideally use FontAwesome or similar */
+        .icon {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            vertical-align: middle;
+            background-color: currentColor; /* Inherit color from parent */
+            mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm-1 15H9v-2h2v2zm0-4H9V7h2v6zm6 4h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>') no-repeat center / contain;
+            -webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm-1 15H9v-2h2v2zm0-4H9V7h2v6zm6 4h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>') no-repeat center / contain;
+        }
+        /* Overriding for specific icons (example, ideally use actual SVG icons) */
+        .icon-facebook { /* Example for social media */
+            mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm3 8h-3V7h-2v3H7v2h3v3h2v-3h3v-2z"/></svg>') no-repeat center / contain;
+            -webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm3 8h-3V7h-2v3H7v2h3v3h2v-3h3v-2z"/></svg>') no-repeat center / contain;
+        }
+        .icon-instagram {
+            mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.071 1.173.055 1.81.249 2.227.411a3.603 3.603 0 011.397.915 3.603 3.603 0 01.915 1.397c.162.417.356 1.054.411 2.227.059 1.266.071 1.646.071 4.85s-.012 3.584-.071 4.85c-.055 1.173-.249 1.81-.411 2.227a3.603 3.603 0 01-.915 1.397 3.603 3.603 0 01-1.397.915c-.417.162-1.054.356-2.227.411-1.266.059-1.646.071-4.85.071s-3.584-.012-4.85-.071c-1.173-.055-1.81-.249-2.227-.411a3.603 3.603 0 01-1.397-.915 3.603 3.603 0 01-.915-1.397c-.162-.417-.356-1.054-.411-2.227-.059-1.266-.071-1.646-.071-4.85s.012-3.584.071-4.85c.055-1.173.249-1.81.411-2.227a3.603 3.603 0 01.915-1.397A3.603 3.603 0 015.15 2.574c.417-.162 1.054-.356 2.227-.411C8.646 2.104 9.026 2.092 12 2.092zm0-2.163c-3.259 0-3.666.014-4.94.072-1.295.061-2.152.264-2.812.529a5.772 5.772 0 00-2.115 1.393A5.771 5.771 0 00.125 4.298c-.265.66-.468 1.517-.529 2.812-.058 1.274-.072 1.681-.072 4.94s.014 3.666.072 4.94c.061 1.295.264 2.152.529 2.812a5.771 5.771 0 001.393 2.115 5.772 5.772 0 002.115 1.393c.66.265 1.517.468 2.812.529 1.274.058 1.681.072 4.94.072s3.666-.014 4.94-.072c1.295-.061 2.152-.264 2.812-.529a5.772 5.772 0 002.115-1.393 5.772 5.772 0 001.393-2.115c.265-.66.468-1.517.529-2.812.058-1.274.072-1.681.072-4.94s-.014-3.666-.072-4.94c-.061-1.295-.264-2.152-.529-2.812a5.772 5.772 0 00-1.393-2.115 5.772 5.772 0 00-2.115-1.393c-.66-.265-1.517-.468-2.812-.529C15.666-.072 15.259-.086 12-2.086zm0 4.323a7.677 7.677 0 100 15.354 7.677 7.677 0 000-15.354zm0 2.163c2.148 0 3.88 1.732 3.88 3.88s-1.732 3.88-3.88 3.88-3.88-1.732-3.88-3.88 1.732-3.88 3.88-3.88zm0-2.163c-3.259 0-5.88 2.621-5.88 5.88s2.621 5.88 5.88 5.88 5.88-2.621 5.88-5.88-2.621-5.88-5.88-5.88z"/></svg>') no-repeat center / contain;
+            -webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.071 1.173.055 1.81.249 2.227.411a3.603 3.603 0 011.397.915 3.603 3.603 0 01.915 1.397c.162.417.356 1.054.411 2.227.059 1.266.071 1.646.071 4.85s-.012 3.584-.071 4.85c-.055 1.173-.249 1.81-.411 2.227a3.603 3.603 0 01-.915 1.397 3.603 3.603 0 01-1.397.915c-.417.162-1.054.356-2.227.411-1.266.059-1.646.071-4.85.071s-3.584-.012-4.85-.071c-1.173-.055-1.81-.249-2.227-.411a3.603 3.603 0 01-1.397-.915 3.603 3.603 0 01-.915-1.397c-.162-.417-.356-1.054-.411-2.227-.059-1.266-.071-1.646-.071-4.85s.012-3.584.071-4.85c.055-1.173.249-1.81.411-2.227a3.603 3.603 0 01.915-1.397A3.603 3.603 0 015.15 2.574c.417-.162 1.054-.356 2.227-.411C8.646 2.104 9.026 2.092 12 2.092zm0-2.163c-3.259 0-3.666.014-4.94.072-1.295.061-2.152.264-2.812.529a5.772 5.772 0 00-2.115 1.393A5.771 5.771 0 00.125 4.298c-.265.66-.468 1.517-.529 2.812-.058 1.274-.072 1.681-.072 4.94s.014 3.666.072 4.94c.061 1.295.264 2.152.529 2.812a5.771 5.771 0 001.393 2.115 5.772 5.772 0 002.115 1.393c.66.265 1.517.468 2.812.529 1.274.058 1.681.072 4.94.072s3.666-.014 4.94-.072c1.295-.061 2.152-.264 2.812-.529a5.772 5.772 0 002.115-1.393 5.772 5.772 0 001.393-2.115c.265-.66.468-1.517.529-2.812.058-1.274.072-1.681.072-4.94s-.014-3.666-.072-4.94c-.061-1.295-.264-2.152-.529-2.812a5.772 5.772 0 00-1.393-2.115 5.772 5.772 0 00-2.115-1.393c-.66-.265-1.517-.468-2.812-.529C15.666-.072 15.259-.086 12-2.086zm0 4.323a7.677 7.677 0 100 15.354 7.677 7.677 0 000-15.354zm0 2.163c2.148 0 3.88 1.732 3.88 3.88s-1.732 3.88-3.88 3.88-3.88-1.732-3.88-3.88 1.732-3.88 3.88-3.88zm0-2.163c-3.259 0-5.88 2.621-5.88 5.88s2.621 5.88 5.88 5.88 5.88-2.621 5.88-5.88-2.621-5.88-5.88-5.88z"/></svg>') no-repeat center / contain;
+        }
+        .icon-twitter {
+            mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22 4.025c-.778.347-1.608.577-2.466.696.896-.534 1.583-1.378 1.905-2.378-.84.498-1.77.86-2.766 1.057C17.766 2.872 16.634 2.3 15.385 2.3c-2.433 0-4.416 1.977-4.416 4.41 0 .346.039.683.114 1.008-3.667-.184-6.918-1.933-9.096-4.597-.38.653-.597 1.408-.597 2.217 0 1.529.778 2.882 1.96 3.674-.72-.023-1.395-.22-1.986-.546v.054c0 2.146 1.526 3.935 3.55 4.34-.37.1-.757.15-1.16.15-.284 0-.56-.027-.828-.079.565 1.767 2.204 3.056 4.148 3.09-1.516 1.187-3.428 1.897-5.508 1.897-.358 0-.712-.021-1.06-.062 1.96 1.258 4.293 1.99 6.793 1.99 8.15 0 12.607-6.753 12.607-12.607 0-.192-.005-.384-.013-.575.867-.624 1.623-1.4 2.22-2.287z"/></svg>') no-repeat center / contain;
+            -webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22 4.025c-.778.347-1.608.577-2.466.696.896-.534 1.583-1.378 1.905-2.378-.84.498-1.77.86-2.766 1.057C17.766 2.872 16.634 2.3 15.385 2.3c-2.433 0-4.416 1.977-4.416 4.41 0 .346.039.683.114 1.008-3.667-.184-6.918-1.933-9.096-4.597-.38.653-.597 1.408-.597 2.217 0 1.529.778 2.882 1.96 3.674-.72-.023-1.395-.22-1.986-.546v.054c0 2.146 1.526 3.935 3.55 4.34-.37.1-.757.15-1.16.15-.284 0-.56-.027-.828-.079.565 1.767 2.204 3.056 4.148 3.09-1.516 1.187-3.428 1.897-5.508 1.897-.358 0-.712-.021-1.06-.062 1.96 1.258 4.293 1.99 6.793 1.99 8.15 0 12.607-6.753 12.607-12.607 0-.192-.005-.384-.013-.575.867-.624 1.623-1.4 2.22-2.287z"/></svg>') no-repeat center / contain;
+        }
+
     </style>
 </head>
 <body>
-    <header>
-        <nav class="container">
-            <a href="#" class="logo">Foodie's Delight</a>
-            <div class="hamburger" id="hamburger-menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            <ul class="nav-links" id="nav-links">
-                <li><a href="#hero">Home</a></li>
-                <li><a href="#about">About Us</a></li>
-                <li><a href="#menu">Menu</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li><a href="#" class="btn primary-btn order-now-btn">Order Now</a></li>
-            </ul>
-        </nav>
+    <!-- Header Section -->
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo">SEN Cold Pressed Oils</a>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#hero" class="active">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#products">Our Oils</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
     <main>
         <!-- Hero Section -->
-        <section id="hero" class="hero-section">
-            <div class="hero-content">
-                <h1>Taste the Authentic Flavors of India</h1>
-                <p>Experience a culinary journey with our exquisite Indian dishes, made with fresh ingredients and traditional recipes.</p>
-                <a href="#menu" class="btn primary-btn large-btn">Explore Our Menu</a>
+        <section id="hero" class="hero">
+            <div class="container hero-content">
+                <h1>Experience Nature's Purity</h1>
+                <p>Discover the rich taste and incredible health benefits of SEN Cold Pressed Oils. Crafted with care, purely natural.</p>
+                <a href="#products" class="btn btn-primary">Shop Now</a>
             </div>
         </section>
 
-        <!-- About Us Section -->
-        <section id="about" class="about-section section-padding">
-            <div class="container">
-                <h2>About Us</h2>
-                <div class="about-content">
-                    <div class="about-image">
-                        <img src="https://images.unsplash.com/photo-1512058564275-c518049102ca?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Assortment of Indian dishes">
-                    </div>
-                    <div class="about-text">
-                        <h3>Our Passion for Indian Cuisine</h3>
-                        <p>At Foodie's Delight, we are passionate about bringing the rich and diverse flavors of Indian cuisine to your table. Our chefs, with years of experience, meticulously prepare each dish, ensuring an authentic taste that will transport you straight to India.</p>
-                        <p>We use only the freshest, locally sourced ingredients and traditional spices to create meals that are both delicious and wholesome. From the aromatic curries of the North to the spicy delicacies of the South, our menu offers a wide range of options to satisfy every palate. Come, embark on a delightful culinary adventure with us!</p>
-                    </div>
-                </div>
+        <!-- About Section -->
+        <section id="about" class="container">
+            <h2 class="section-heading text-center">About SEN Cold Pressed Oils</h2>
+            <div class="about-content">
+                <h3>Our Commitment to Your Health</h3>
+                <p>At SEN Cold Pressed Oils, we believe in bringing you the purest form of nature's goodness. Our oils are extracted using traditional cold pressing methods, ensuring that all vital nutrients, natural flavors, and aromatic compounds are retained. We carefully select the finest seeds and nuts, free from chemicals and additives, to deliver an unparalleled experience of health and taste.</p>
+                <p>From farm to bottle, every step is meticulously controlled to maintain the highest quality standards. We are dedicated to promoting a healthier lifestyle by providing oils that are not just ingredients, but a source of vitality and well-being for you and your family.</p>
             </div>
         </section>
 
-        <!-- Menu Section -->
-        <section id="menu" class="menu-section section-padding">
-            <div class="container">
-                <h2>Our Delicious Menu</h2>
-                <p class="menu-tagline">Handpicked selection of our finest Indian dishes.</p>
-                <div class="menu-grid" id="menu-items-container">
-                    <!-- Dishes will be dynamically loaded here by JavaScript -->
-                    <div class="loading-spinner"></div>
-                </div>
+        <!-- Products Section -->
+        <section id="products" class="container">
+            <h2 class="section-heading text-center">Our Healthy Cold Pressed Oils</h2>
+            <div class="product-grid" id="productGrid">
+                <!-- Products will be dynamically loaded here by JavaScript -->
+                <p class="text-center" id="loadingMessage">Loading our exquisite oils...</p>
             </div>
         </section>
 
         <!-- Contact Section -->
-        <section id="contact" class="contact-section section-padding">
-            <div class="container">
-                <h2>Contact Us</h2>
-                <div class="contact-grid">
-                    <div class="contact-info">
-                        <h3>Get in Touch</h3>
-                        <p><i class="fas fa-map-marker-alt"></i> 123 Spice Route, Curry Lane, INDIA</p>
-                        <p><i class="fas fa-phone"></i> +91 98765 43210</p>
-                        <p><i class="fas fa-envelope"></i> info@foodiesdelight.com</p>
-                        <p><i class="fas fa-clock"></i> Mon - Sat: 11:00 AM - 10:00 PM</p>
-                        <div class="social-links">
-                            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                        </div>
-                    </div>
-                    <div class="contact-form">
-                        <h3>Send us a message</h3>
-                        <form action="#" method="POST" onsubmit="alert('Message sent successfully! We will get back to you shortly.'); return false;">
-                            <div class="form-group">
-                                <label for="name">Name</label>
-                                <input type="text" id="name" name="name" required aria-label="Your Name">
-                            </div>
-                            <div class="form-group">
-                                <label for="email">Email</label>
-                                <input type="email" id="email" name="email" required aria-label="Your Email">
-                            </div>
-                            <div class="form-group">
-                                <label for="message">Message</label>
-                                <textarea id="message" name="message" rows="5" required aria-label="Your Message"></textarea>
-                            </div>
-                            <button type="submit" class="btn primary-btn">Send Message</button>
-                        </form>
-                    </div>
-                </div>
+        <section id="contact" class="container">
+            <h2 class="section-heading text-center">Get in Touch</h2>
+            <div class="contact-form-wrapper">
+                <p class="text-center" style="margin-bottom: 30px; color: #666;">Have questions or need assistance? Reach out to us!</p>
+                <form id="contactForm" class="contact-form">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" placeholder="Your Name" required>
+
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" placeholder="Your Email" required>
+
+                    <label for="subject">Subject:</label>
+                    <input type="text" id="subject" name="subject" placeholder="What is this about?" required>
+
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" placeholder="Your message here..." required></textarea>
+
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
             </div>
         </section>
     </main>
 
-    <footer>
+    <!-- Footer Section -->
+    <footer class="footer">
         <div class="container">
-            <p>&copy; 2023 Foodie's Delight. All rights reserved.</p>
-            <ul class="footer-links">
-                <li><a href="#">Privacy Policy</a></li>
-                <li><a href="#">Terms of Service</a></li>
-            </ul>
+            <a href="#" class="logo">SEN Cold Pressed Oils</a>
+            <nav class="footer-nav">
+                <ul>
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#products">Oils</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </nav>
+            <div class="social-icons">
+                <a href="#" aria-label="Facebook"><span class="icon icon-facebook"></span></a>
+                <a href="#" aria-label="Instagram"><span class="icon icon-instagram"></span></a>
+                <a href="#" aria-label="Twitter"><span class="icon icon-twitter"></span></a>
+            </div>
+            <p>&copy; 2023 SEN Cold Pressed Oils. All rights reserved.</p>
         </div>
     </footer>
 
     <script>
-        /*
-         * PRODUCTION-READY JAVASCRIPT
-         *
-         * This script handles interactive features such as the mobile navigation
-         * and dynamically fetching and rendering menu items from a public API.
-         */
-
         document.addEventListener('DOMContentLoaded', () => {
-            // --- 1. Mobile Navigation Toggle ---
-            const hamburger = document.getElementById('hamburger-menu');
-            const navLinks = document.getElementById('nav-links');
+            const hamburger = document.getElementById('hamburger');
+            const navLinks = document.getElementById('navLinks');
+            const productGrid = document.getElementById('productGrid');
+            const loadingMessage = document.getElementById('loadingMessage');
+            const contactForm = document.getElementById('contactForm');
+            const navItems = document.querySelectorAll('.nav-links a');
 
-            if (hamburger && navLinks) {
-                hamburger.addEventListener('click', () => {
-                    hamburger.classList.toggle('active');
-                    navLinks.classList.toggle('active');
-                    // Add/remove aria-expanded for accessibility
-                    const isExpanded = navLinks.classList.contains('active');
-                    hamburger.setAttribute('aria-expanded', isExpanded);
+            /**
+             * Handles the mobile navigation toggle.
+             * Toggles 'active' class on hamburger icon and nav links.
+             */
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                navLinks.classList.toggle('active');
+            });
+
+            /**
+             * Smooth scrolling for navigation links and closes mobile menu.
+             */
+            navItems.forEach(item => {
+                item.addEventListener('click', (event) => {
+                    // Remove active class from all nav items
+                    navItems.forEach(link => link.classList.remove('active'));
+                    // Add active class to the clicked item
+                    event.currentTarget.classList.add('active');
+
+                    // If mobile menu is open, close it
+                    if (navLinks.classList.contains('active')) {
+                        hamburger.classList.remove('active');
+                        navLinks.classList.remove('active');
+                    }
+
+                    // For smooth scroll, this is already handled by CSS scroll-behavior: smooth
+                    // If you needed custom scroll, you'd add:
+                    // const targetId = item.getAttribute('href').substring(1);
+                    // document.getElementById(targetId).scrollIntoView({ behavior: 'smooth' });
                 });
+            });
 
-                // Close nav menu when a link is clicked (for smooth scrolling)
-                navLinks.querySelectorAll('a').forEach(link => {
-                    link.addEventListener('click', () => {
-                        if (navLinks.classList.contains('active')) {
-                            hamburger.classList.remove('active');
-                            navLinks.classList.remove('active');
-                            hamburger.setAttribute('aria-expanded', false);
-                        }
-                    });
-                });
-            }
-
-            // --- 2. Fetch API Data and Render Menu Items ---
-            const menuItemsContainer = document.getElementById('menu-items-container');
-            const API_URL = 'https://fakestoreapi.com/products?limit=8'; // Using Fakestore API for demonstration
-
-            // Mapping for generic product titles to Indian dish names
-            const indianDishNames = [
-                "Butter Chicken Masala",
-                "Paneer Tikka Delight",
-                "Hyderabadi Biryani",
-                "Vegetable Korma",
-                "Tandoori Chicken Skewers",
-                "Dal Makhani Extravaganza",
-                "Goan Fish Curry",
-                "Palak Paneer Special"
-            ];
-
-            const fetchMenu = async () => {
-                // Show loading spinner
-                menuItemsContainer.innerHTML = '<div class="loading-spinner"></div>';
-
+            /**
+             * Dynamically fetches product data from a public API and renders it.
+             * Using fakestoreapi.com to simulate product listings.
+             * Note: Real cold pressed oil products would typically come from a custom backend API.
+             */
+            const fetchProducts = async () => {
                 try {
-                    const response = await fetch(API_URL);
+                    const response = await fetch('https://fakestoreapi.com/products?limit=6'); // Fetch 6 items
                     if (!response.ok) {
                         throw new Error(`HTTP error! status: ${response.status}`);
                     }
                     const products = await response.json();
-                    renderMenuItems(products);
-                } catch (error) {
-                    console.error('Failed to fetch menu items:', error);
-                    menuItemsContainer.innerHTML = `
-                        <p style="color: var(--light-text-color); grid-column: 1 / -1; text-align: center;">
-                            Failed to load menu items. Please try again later.
-                            <br> Error: ${error.message}
-                        </p>
-                    `;
-                }
-            };
+                    
+                    // Clear loading message
+                    loadingMessage.remove();
 
-            const renderMenuItems = (products) => {
-                if (!menuItemsContainer) return; // Exit if container not found
+                    // Map fetched products to a more relevant "oil" context (simulated)
+                    const simulatedOils = products.map(product => {
+                        let oilType = "Variety"; // Default
+                        if (product.category.includes("jewelery")) oilType = "Olive";
+                        else if (product.category.includes("electronics")) oilType = "Sesame";
+                        else if (product.category.includes("men's clothing")) oilType = "Coconut";
+                        else if (product.category.includes("women's clothing")) oilType = "Sunflower";
 
-                menuItemsContainer.innerHTML = ''; // Clear loading spinner
+                        // Shorten titles and descriptions for better display
+                        const title = product.title.length > 50 ? product.title.substring(0, 47) + '...' : product.title;
+                        const description = product.description.length > 120 ? product.description.substring(0, 117) + '...' : product.description;
 
-                if (products.length === 0) {
-                    menuItemsContainer.innerHTML = `
-                        <p style="color: var(--light-text-color); grid-column: 1 / -1; text-align: center;">
-                            No menu items available at the moment.
-                        </p>
-                    `;
-                    return;
-                }
-
-                products.forEach((product, index) => {
-                    const dishName = indianDishNames[index % indianDishNames.length]; // Cycle through names
-                    const descriptionSnippet = product.description.length > 100 
-                                              ? product.description.substring(0, 97) + '...' 
-                                              : product.description;
-
-                    const menuItemHTML = `
-                        <article class="menu-item" tabindex="0">
-                            <div class="menu-item-image">
-                                <img src="${product.image}" alt="${dishName}">
-                            </div>
-                            <div class="menu-item-content">
-                                <h3>${dishName}</h3>
-                                <p>${descriptionSnippet}</p>
-                                <span class="menu-item-price">$${product.price.toFixed(2)}</span>
-                                <button class="btn primary-btn order-now-btn" aria-label="Order ${dishName}">Order Now</button>
-                            </div>
-                        </article>
-                    `;
-                    menuItemsContainer.insertAdjacentHTML('beforeend', menuItemHTML);
-                });
-
-                // Add event listeners to newly created "Order Now" buttons
-                document.querySelectorAll('.menu-item .order-now-btn').forEach(button => {
-                    button.addEventListener('click', (event) => {
-                        const dishName = event.target.closest('.menu-item-content').querySelector('h3').textContent;
-                        alert(`You've added "${dishName}" to your order! (This is a demo, no actual order placed)`);
+                        return {
+                            id: product.id,
+                            name: `${oilType} Oil`, // Simulate oil name
+                            category: `Cold Pressed ${oilType}`,
+                            description: `Discover the pure essence of ${oilType} oil. Rich in nutrients and perfect for healthy cooking or skincare. ${description}`,
+                            price: (product.price * 0.7).toFixed(2), // Adjust price for realism
+                            image: product.image // Use original image
+                        };
                     });
-                });
+
+                    // Render products to the DOM
+                    simulatedOils.forEach(product => {
+                        const productCard = document.createElement('article'); // Use <article> for individual products
+                        productCard.classList.add('product-card');
+                        productCard.innerHTML = `
+                            <img src="${product.image}" alt="${product.name}">
+                            <p class="category">${product.category}</p>
+                            <h3>${product.name}</h3>
+                            <p class="description">${product.description}</p>
+                            <span class="price">$${product.price}</span>
+                            <button class="btn-add-to-cart" data-product-id="${product.id}" data-product-name="${product.name}">Add to Cart</button>
+                        `;
+                        productGrid.appendChild(productCard);
+                    });
+
+                    // Add event listeners for "Add to Cart" buttons
+                    document.querySelectorAll('.btn-add-to-cart').forEach(button => {
+                        button.addEventListener('click', (event) => {
+                            const productName = event.target.dataset.productName;
+                            // Simulate adding to cart - in a real app, this would update a cart state or send to backend
+                            alert(`${productName} added to cart! (This is a client-side simulation)`);
+                            console.log(`Product ID ${event.target.dataset.productId} (${productName}) added to cart.`);
+                        });
+                    });
+
+                } catch (error) {
+                    console.error('Failed to fetch products:', error);
+                    loadingMessage.textContent = 'Failed to load products. Please try again later.';
+                    // Optionally, remove the product grid to show only the error message
+                    productGrid.innerHTML = `<p class="text-center" style="color: red;">Failed to load products. Please try again later. Error: ${error.message}</p>`;
+                }
             };
 
-            // Initial fetch of menu items when the page loads
-            fetchMenu();
+            // Call fetchProducts when the DOM is loaded
+            fetchProducts();
 
-            // --- 3. Global "Order Now" Button Functionality (e.g., in Header) ---
-            document.querySelectorAll('a.order-now-btn, button.order-now-btn').forEach(btn => {
-                btn.addEventListener('click', (e) => {
-                    // Prevent default link behavior if it's an anchor tag
-                    if (e.target.tagName === 'A') {
-                        e.preventDefault();
-                    }
-                    alert('Ready to order? Please browse our menu first! (This is a demo, no actual order placed)');
-                    // For a real site, this might navigate to a cart page or open a modal
+            /**
+             * Handles contact form submission.
+             * Prevents default form submission and logs data (client-side simulation).
+             */
+            contactForm.addEventListener('submit', (event) => {
+                event.preventDefault(); // Prevent actual form submission
+
+                const formData = new FormData(contactForm);
+                const formObject = {};
+                formData.forEach((value, key) => {
+                    formObject[key] = value;
                 });
+
+                console.log('Contact form submitted:', formObject);
+                alert('Thank you for your message! We will get back to you shortly. (This is a client-side simulation)');
+                contactForm.reset(); // Clear the form
             });
 
+            /**
+             * Intersection Observer for active navigation links based on scroll position.
+             */
+            const sections = document.querySelectorAll('section');
+            const options = {
+                root: null, // viewport
+                rootMargin: '0px',
+                threshold: 0.5 // Trigger when 50% of the section is visible
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        navItems.forEach(item => {
+                            item.classList.remove('active');
+                            if (item.getAttribute('href') === `#${entry.target.id}`) {
+                                item.classList.add('active');
+                            }
+                        });
+                    }
+                });
+            }, options);
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+
+            // Handle initial active link for hero section if it's visible on load
+            const heroLink = document.querySelector('.nav-links a[href="#hero"]');
+            if (heroLink) {
+                heroLink.classList.add('active');
+            }
         });
     </script>
 </body>
